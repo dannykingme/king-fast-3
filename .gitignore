@@ -1,0 +1,22 @@
+# Node / TypeScript
+node_modules/
+dist/
+*.tsbuildinfo
+
+# SQLite databases (runtime + tests)
+*.db
+*.db-journal
+
+# Logs / OS / editor noise
+*.log
+.DS_Store
+.idea/
+.vscode/
+
+# Python (pytest-based functional testing artifacts)
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
