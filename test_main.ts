@@ -51,3 +51,22 @@ describe('GET /users', () => {
     expect(response.body).toEqual([]);
   });
 });
+
+describe('POST /users', () => {
+  /**
+   * Mirrors test_main.py lines 25–35: posting a valid user payload must
+   * yield a 201 response whose JSON body echoes the submitted name and
+   * email and includes an `id` field. This is the milestone-2 happy
+   * path and the canonical contract for the create endpoint.
+   */
+  test('creates a user', async () => {
+    const response = await request(app)
+      .post('/users')
+      .send({ name: 'John Doe', email: 'john@example.com' });
+
+    expect(response.status).toBe(201);
+    expect(response.body.name).toBe('John Doe');
+    expect(response.body.email).toBe('john@example.com');
+    expect('id' in response.body).toBe(true);
+  });
+});
